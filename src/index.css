@@ -1,0 +1,362 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Theme Variables */
+@theme {
+    --font-primary: "Josefin Sans" sans-serif;
+    --font-secondary: "Roboto", sans-serif;
+    --breakpoint-3xl: 1920px;
+
+    /* Colors */
+    --color-background: #000000;
+    --color-primary: #FFD700; /* Icon */
+    --color-secondary: #00FFFF;
+    --color-tertiary: #BF00FF;
+    --color-text: #FFFFFF;
+
+
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+/* Scrollbar untuk browser WebKit */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff7d00;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e66c00;
+}
+
+/* Scrollbar untuk Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #ff7d00 rgba(255, 255, 255, 0.1);
+}
+
+p {
+    color: var(--color-text-secondary);
+    transition: color 0.3s ease;
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-tertiary);
+}
+
+/* Navbar Buttons */
+button {
+    font-family: var(--font-primary);
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--color-text);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Button Hero */
+
+.hero-btn {
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    /* Reduced padding */
+    font-size: 0.9rem;
+    /* Reduced font size */
+    font-weight: bold;
+    border: 2px solid;
+    border-radius: 6px;
+    /* Slightly smaller border radius */
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.hero-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+@keyframes animate-gradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+
+
+.animated-gradient-text {
+    background: linear-gradient(90deg, #4acfee, #53f8c9, #02d79a, #6070fd, #2a46ff, #0099ff, #4acfee);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 5s linear infinite;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.hero-btn:hover {
+    transform: scale(1.05);
+    /* Scale up slightly on hover */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    /* Add glowing effect */
+}
+
+.hero-btn:hover::before {
+    width: 100%;
+    /* Expand the glowing overlay */
+}
+/* Specific Colors for Buttons */
+.hero-btn.border-secondary {
+    border-color: #00ffff;
+    color: var(--color-primary);
+    
+}
+
+.hero-btn.border-primary {
+    border-color: var(--color-primary);
+    
+    color: var(--color-secondary);
+}
+
+.autoBlur {
+    animation: autoBlurAnimation linear both;
+    animation-timeline: view();
+}
+
+@keyframes autoBlurAnimation {
+    0% {
+        filter: blur(40px);
+    }
+
+    40%,
+    60% {
+        filter: blur(0);
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    100% {
+        filter: blur (40px);
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+.gradient-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+video.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    object-fit: cover;
+}
+
+
+
+.animated-gradient-text1 {
+    background: linear-gradient(90deg, #FFD700, #D4AF37, #B8860B, #8B7500, #5A4C00, #2A2400, #000000, #FF0000, #D40000, #B00000, #800000, #500000, #2A0000, #000000, #FFD700);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 10s linear infinite;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.animated-gradient-text2 {
+    background: linear-gradient(90deg,
+                #00FFFF,
+                /* Cyan neon */
+                #008B8B,
+                /* Cyan tua */
+                #000000,
+                /* Hitam */
+                #FFD700,
+                /* Kuning neon */
+                #FFA500,
+                /* Kuning keemasan */
+                #000000,
+                /* Hitam */
+                #00FFFF
+                /* Kembali ke Cyan neon */
+            );
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 10s linear infinite;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+            0.025em 0.04em 0 #fffc00;
+    }
+
+    15% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+            0.025em 0.04em 0 #fffc00;
+    }
+
+    16% {
+        text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+            -0.05em -0.05em 0 #fffc00;
+    }
+
+    49% {
+        text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+            -0.05em -0.05em 0 #fffc00;
+    }
+
+    50% {
+        text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+            0 -0.04em 0 #fffc00;
+    }
+
+    99% {
+        text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+            0 -0.04em 0 #fffc00;
+    }
+
+    100% {
+        text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+            -0.04em -0.025em 0 #fffc00;
+    }
+}
+
+.glitch-text {
+    animation: glitch 0.5s linear infinite;
+}
+
+.font-cyber {
+    font-family: 'Blender Pro', monospace;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+
+/* Default styles for desktop */
+.game-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.game-card .card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-card .card video {
+    width: 100%;
+    height: auto;
+}
+
+.game-card .card h3 {
+    font-size: 1.5rem;
+    margin: 16px;
+}
+
+.game-card .card p {
+    font-size: 1rem;
+    margin: 16px;
+}
+
+.game-card .card button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 16px;
+    cursor: pointer;
+}
+
+/* Styles for tablet */
+@media (max-width: 1024px) {
+    .game-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Styles for mobile */
+@media (max-width: 768px) {
+    .game-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hologram-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Make sure it doesn't block interactions */
+}
